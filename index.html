@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <!-- <script src="./js/jquery.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <form action="" id="form">
+        <label for="email">Email
+            <input type="text" id="email"">
+        </label>
+        <br>
+        <br>
+        <label for="phone">
+            Phone
+            <input type="tel" name="" id="phone">
+        </label>
+        <br>
+        <br>
+        <button id="showEmail">Show email</button>
+        <button type="submit">Submit</button>
+    </form>
+    <script src="./main.js"></script>
+    <script>
+        const form = document.getElementById('form');
+
+        const emailRegExp = /^[\w-.]+@[\w-.]+\.[a-zA-Z]{2,}$/;
+        const phoneRegExp = /^\+380\d{9}$/;
+        let isValid = false;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const emailValue = document.getElementById('email').value.trim();
+            const phonelValue = document.getElementById('phone').value.trim();
+
+            console.log(emailValue, phonelValue);
+
+            const isEmailValid = emailRegExp.test(emailValue);
+            const isPhoneValid = phoneRegExp.test(phonelValue);
+
+            console.log(isEmailValid, isPhoneValid);
+
+            if (isEmailValid && isPhoneValid) {
+                isValid = true;
+            }
+
+            if (isValid) {
+                alert('Eerything OK!');
+                isValid = false;
+            } else {
+                alert('BAD!!!');
+            }
+        });
+
+        $(document).ready(function() {
+            $('h1').text('New title added!!!');
+
+            $('label').css('color', 'red').fadeOut(2000).fadeIn(2000);
+
+            $('#showEmail').on('click', function(e) {
+                e.preventDefault();
+                const emailValue = $('#email').val();
+
+                console.log(emailValue);
+            })
+        })
+
+        
+    </script>
+</body>
+</html>

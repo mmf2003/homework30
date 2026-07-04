@@ -35,4 +35,4 @@ function isValidUrl(url) {
 // console.log(isValidUrl('invalid-url'))             // Повинно вивести: false
 
 // Експорт функції для використання та тестування
-export { isValidEmail, isValidUrl };
+/* export { isValidEmail, isValidUrl }; */
